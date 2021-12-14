@@ -1,2 +1,7 @@
 <p>home works!</p>
 <p class="main-content">My Home</p>
+<p>{{name}}</p>
+<input type="text" value="{{name}}">
+<input type="text" [value]="name">
+<h2 *ngIf="age > 18">Già quá</h2>
+<h2 *ngIf="age <= 18">Trẻ quá</h2>
