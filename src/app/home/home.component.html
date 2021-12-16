@@ -1,1 +1,54 @@
-<p>home works!</p>
+<h3>Home</h3>
+<input type="text" value="{{name}}">
+<input type="text" [(ngModel)]="name">
+<h4>Chào bạn {{name}}</h4>
+<button (click)="resetName()">Reset tên</button>
+<h2 *ngIf="age<18">Trẻ quá</h2>
+<h2 *ngIf="age>18">Già quá</h2>
+
+<div *ngIf="age<=18; then tre; else gia;"></div>
+<ng-template #tre>
+    <h2>Trẻ</h2>
+</ng-template>
+<ng-template #gia>
+    <h2>Già</h2>
+</ng-template>
+
+<h3>Trái cây</h3>
+<div *ngFor="let item of fruit; let i = index;">
+    <li>{{i+1}}. {{item}}</li>
+</div>
+
+<table class="table2">
+    <tr>
+        <th>Thứ tự</th>
+        <th>Tên</th>
+        <th>Giá</th>
+        <th>Khuyến mại</th>
+    </tr>
+    <tr *ngFor="let item of fruit2; let i = index;">
+        <td>{{i+1}}</td>
+        <td>{{item.ten | uppercase}}</td>
+        <td>{{item.gia | currency: "USD":"symbol":"1.2"}}
+            <span [ngClass]="{'so-am' : item.gia < 0}"></span>
+        </td>
+        <td>
+            <span>{{item.km | onSale | uppercase}}</span>
+        </td>
+    </tr>
+</table>
+Tỉnh/Thành Phố
+<select id="city" (change)="OnChangeCity($event)">
+    <option *ngFor="let item of cities" value="{{item.city}}">
+        {{item.city}}
+    </option>
+</select>
+Quận/Huyện 
+<select id="district">
+    <option *ngFor="let item of districts" value="">
+        {{item}}
+    </option>
+</select>
+<span>Counter = {{counter}}</span>
+<br>
+<span>Counter^2 = {{counterBP}}</span>

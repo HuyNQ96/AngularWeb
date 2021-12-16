@@ -1,1 +1,17 @@
-<p>component works!</p>
+<p appHighLight="myColor">component</p>
+<p appHighLight="red">component</p>
+<p appHighLight="orange">component</p>
+<ul [ngSwitch]="loginName">
+    <li *ngSwitchCase="'user'">
+        <p>Login as User</p>
+    </li>
+    <li *ngSwitchCase="'admin'">
+        <p>Login as Admin</p>
+    </li>
+    <li *ngSwitchDefault="">
+        <p>Please choose login name</p>
+    </li>
+</ul>
+<span>Counter = {{counter}}</span>
+<br>
+<span>Counter^2 = {{counterBP}}</span>
